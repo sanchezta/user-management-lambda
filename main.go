@@ -1,22 +1,20 @@
 package main
 
 import (
-	lambda "github.com/aws/aws-lambda-go/lambda"
-	"github.com/sanchezta/user-management-lambda/aws"
+	"context"
 
 	"github.com/aws/aws-lambda-go/events"
-
-	"context"
+	lambda "github.com/aws/aws-lambda-go/lambda"
+	"github.com/sanchezta/user-management-lambda/aws"
 )
-func main (){
 
-	lambda.Start(EjecutoLambda)
+func main() {
+
+	lambda.Start(ExecuteLambda)
 
 }
 
-
-func EjecutoLambda (ctx context.Context, event events.CognitoEventUserPoolsPostConfirmation) (events.CognitoEventUserPoolsPostConfirmation, error){
-
+func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostConfirmation) (events.CognitoEventUserPoolsPostConfirmation, error) {
 	aws.InitAws()
 
 	return event, nil
