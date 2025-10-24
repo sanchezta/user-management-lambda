@@ -19,9 +19,9 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 	aws.InitAws()
 
 	if !ValidateParameter() {
-		fmt.Print("Error in parameters. 'SecretName' must be provided")
+		fmt.Print("Error en los parámetros. Se debe proporcionar 'SecretName'")
 
-		err := errors.New("invalid parameters: 'SecretName' must be provided")
+		err := errors.New("parámetros inválidos: se debe proporcionar 'SecretName'")
 
 		return event, err
 	}
