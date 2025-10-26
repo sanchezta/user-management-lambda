@@ -3,6 +3,7 @@ module github.com/sanchezta/user-management-lambda
 go 1.25.1
 
 require (
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/aws/aws-lambda-go v1.50.0 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.39.4 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.31.14 // indirect
@@ -18,4 +19,5 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.38.8 // indirect
 	github.com/aws/smithy-go v1.23.1 // indirect
+	github.com/go-sql-driver/mysql v1.9.3 // indirect
 )

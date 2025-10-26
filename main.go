@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	lambda "github.com/aws/aws-lambda-go/lambda"
 	"github.com/sanchezta/user-management-lambda/aws"
-	"github.com/sanchezta/user-management-lambda/common"
+	"github.com/sanchezta/user-management-lambda/db"
 	"github.com/sanchezta/user-management-lambda/models"
 )
 
@@ -45,13 +45,13 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 		
 	}
 
-	err := common.ReadScret()
+	err := db.ReadScret()
 
 	if err != nil {
 		fmt.Println("Error al leer el Secret"+err.Error())
 		return event, err
 	}
-	return event, err
+	return event, nil
 }
 
 // ValidateParameter checks if the required environment variable exists
