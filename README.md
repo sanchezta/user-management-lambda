@@ -178,27 +178,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**sanchezta**
-
-- GitHub: [@sanchezta](https://github.com/sanchezta)
-
----
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-- 🐛 [Open an Issue](https://github.com/sanchezta/user-management-lambda/issues)
-- 💬 [Discussions](https://github.com/sanchezta/user-management-lambda/discussions)
-
----
-
 <p align="center">Made with ❤️ using Go and AWS</p>
