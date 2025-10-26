@@ -9,6 +9,8 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	lambda "github.com/aws/aws-lambda-go/lambda"
 	"github.com/sanchezta/user-management-lambda/aws"
+	"github.com/sanchezta/user-management-lambda/common"
+	"github.com/sanchezta/user-management-lambda/models"
 )
 
 func main() {
@@ -25,8 +27,31 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 
 		return event, err
 	}
+  
+	var data models.SignUp
 
-	return event, nil
+	for row, att := range event.Request.UserAttributes{
+
+
+		switch row {
+		case "email":
+			data.UserEmail = att
+			fmt.Println("Email ="+ data.UserEmail)
+		case "sub":
+			data.UserUUID = att
+			fmt.Println("Sub"+ data.UserUUID)
+		}
+		
+		
+	}
+
+	err := common.ReadScret()
+
+	if err != nil {
+		fmt.Println("Error al leer el Secret"+err.Error())
+		return event, err
+	}
+	return event, err
 }
 
 // ValidateParameter checks if the required environment variable exists
