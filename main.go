@@ -32,7 +32,6 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 
 	for row, att := range event.Request.UserAttributes{
 
-
 		switch row {
 		case "email":
 			data.UserEmail = att
@@ -41,8 +40,6 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 			data.UserUUID = att
 			fmt.Println("Sub"+ data.UserUUID)
 		}
-		
-		
 	}
 
 	err := db.ReadScret()
@@ -51,7 +48,10 @@ func ExecuteLambda(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 		fmt.Println("Error al leer el Secret"+err.Error())
 		return event, err
 	}
-	return event, nil
+
+	err = db.SignUp(data)
+	
+	return event, err
 }
 
 // ValidateParameter checks if the required environment variable exists
